@@ -16,31 +16,38 @@
     <nav class="purple">
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
+        {% block link %}{% endblock %}
+        <!--<div class="nav-wrapper">
+            <ul id="nav-mobile" class="right">
                 <li><a href="/">Home</a></li>
                 <li><a href="/users">Users Jinja</a></li>
                 <li><a href="/static/users">Users JS</a></li>
+                <li><a href="/logout">New Shuffle</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
-        </div>
+        </div>-->
       </div>
     </nav>
     
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-      <nav class="white black-text" style="padding: 10px">
-        <div class="nav-wrapper">
-            <ul class="flashes">
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        </div>
-      </nav>
+      <div id="alert" class="col s10 offset-s1">
+        <a href="" id="close">&times;</a>
+        {% for message in messages %}
+        <div style="font-weight: bold;text-align: center;font-size: 1.2em;margin-top: -5px;">{{ message }}</div>
+        {% endfor %}
+      </div>
       {% endif %}
     {% endwith %}
 
     <div class="container" id="content">{% block content %}{% endblock %}</div>
+
+
+    <footer>
+      <div class="">
+        <p class="brand-logo center">Copyright 2023. CTRL-Freaks </p>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
