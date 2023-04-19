@@ -19,4 +19,10 @@ async function main(){
     loadTable(users);
 }
 
+//for Parallax effect
+document.addEventListener('DOMContentLoaded', () =>{
+    const eff = document.querySelectorAll('.parallax');
+    M.Parallax.init(eff, {});
+});
+
 main();
