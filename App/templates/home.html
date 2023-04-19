@@ -1,14 +1,111 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Workout Planner</title>
-    <!--test-->
-  </head>
-  <body>
-    <h1>Welcome to the Workout Planner</h1>
-    <p>Get started by creating a new workout or remixing an existing one.</p>
-    <a href="/workout">Create a New Workout</a>
-    <a href="/remix">Remix an Existing Workout</a>
-    <a href="/profile">View Profile</a>
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Remix Workouts{% endblock %}
+{% block page %}CTRL Freaks Fitness{% endblock %}
+
+{% block link%}
+<ul id="nav-mobile" class="right">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/logout.html">Logout</a></li>
+</ul>
+{% endblock %}
+
+{{ super() }}
+{% block content %}
+<div id="shuffle">
+  <!--Lists Upper Body Workouts-->
+  <div class="col m2 list-container collection">
+      <h3>Upper Body</h3>
+      <a class="btn" id="remix1" href="/remix1">REMIX</a>
+
+      <ul class="collection " id="result1">
+          {% if current_user.is_authenticated %}
+              {% for uB in upperBody %}
+              <li class="collection-item"></li>
+                  <div class="list-item"> 
+                      <p>{{uB.name}}</p>
+
+                      <!-- Modal Trigger -->
+                      <a class="waves-effect waves-light btn modal-trigger right" href="#modal">More</a>
+                  </div>
+              </li>
+              {% endfor %}
+          {% endif %} 
+      </ul>       
+  </div>
+
+  <!--Lists Lower Body Workouts-->
+  <div class="col m2 list-container collection">
+      <h3>Lower Body</h3>
+      <a class="btn" id="remix2" href="/remix2">REMIX</a>
+
+      <ul class="collection " id="result2">
+          {% if current_user.is_authenticated %}
+              {% for lB in lowerBody %}
+              <li class="collection-item"></li>
+                  <div class="list-item"> 
+                      <p>{{lB.name}}</p>
+
+                      <!-- Modal Trigger -->
+                      <a class="waves-effect waves-light btn modal-trigger right" href="#modal">More</a>
+                  </div>
+              </li>
+              {% endfor %}
+          {% endif %} 
+      </ul>       
+  </div>
+
+  <!--Lists Core Workouts-->
+  <div class="col m2 list-container collection">
+      <h3>Core</h3>
+      <a class="btn" id="remix3" href="/remix3">REMIX</a>
+
+      <ul class="collection " id="result2">
+          {% if current_user.is_authenticated %}
+              {% for cB in core %}
+              <li class="collection-item"></li>
+                  <div class="list-item"> 
+                      <p>{{cB.name}}</p>
+
+                      <!-- Modal Trigger -->
+                      <a class="waves-effect waves-light btn modal-trigger right" href="#modal">More</a>
+                  </div>
+              </li>
+              {% endfor %}
+          {% endif %} 
+      </ul>       
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <h4>{{uB.name}}</h4>
+      <hr>
+      <h3>Type:</h3>
+      <p>{{uB.type}}</p>
+
+      <h3>Muscle:</h3>
+      <p>{{uB.muscle}}</p>
+
+      <h3>Equipment:</h3>
+      <p>{{uB.equip}}</p>
+
+      <h3>Difficulty:</h3>
+      <p>{{uB.difficulty}}</p>
+
+      <h3>Instructions:</h3>
+      <p>{{uB.instructs}}</p>
+  </div>
+
+  <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+
+<!--No. of reps-->
+<script>
+  let x = Math.floor((Math.random() * 10) + 1); 
+  document.getElementById("reps").innerHTML = x;
+</script>
+
+{% endblock %}

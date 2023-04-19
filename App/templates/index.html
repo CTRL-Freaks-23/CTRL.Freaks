@@ -1,69 +1,31 @@
 {% extends "layout.html" %}
-{% block title %}Home{% endblock %}
-{% block page %}Randomized Workouts{% endblock %}
+{% block title %}Welcome{% endblock %}
+{% block page %}CTRL Freaks Fitness{% endblock %}
 
 {% block link%}
 <ul id="nav-mobile" class="right">
-    <li><a href="/logout">View Shuffles</a></li>
-    <li><a href="/logout">Create Customized Shuffle</a></li>
+    <li><a href="/home.html">Workouts</a></li>
     <li><a href="/logout">Logout</a></li>
 </ul>
 {% endblock %}
 
-{{ super() }}
-
 {% block content %}
-<div id="selections">
-    <h2 class="text-center">Create your Workout Shuffle</h2>
-    <div class="container text-center">
-        <h4>Type</h4>
-        <div id="btnContainer1" class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="btnType" id="btnTypeCardio" value="cardio" checked>
-            <label class="btn btn-outline-primary" for="btnTypeCardio">Cardio</label>
-
-            <input type="radio" class="btn-check" name="btnType" id="btnTypeStrength" value="strength">
-            <label class="btn btn-outline-primary" for="btnTypeStrength">Strength</label>
-
-            <input type="radio" class="btn-check" name="btnType" id="btnTypeLifting" value="lifting">
-            <label class="btn btn-outline-primary" for="btnTypeLifting">Lifting</label>
-
-            <input type="radio" class="btn-check" name="btnType" id="btnTypeStretching" value="stretching">
-            <label class="btn btn-outline-primary" for="btnTypeStretching">Stretching</label>
-        </div>
-
-        <h4>Muscle</h4>
-        <div id="btnContainer2" class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="btnArea" id="btnAreaChest" value="chest" checked>
-            <label class="btn btn-outline-primary" for="btnAreaChest">Chest</label>
-
-            <input type="radio" class="btn-check" name="btnArea" id="btnAreaGlutes" value="glutes">
-            <label class="btn btn-outline-primary" for="btnAreaGlutes">Glutes</label>
-
-            <input type="radio" class="btn-check" name="btnArea" id="btnAreaArms" value="arms">
-            <label class="btn btn-outline-primary" for="btnAreaArms">Arms</label>
-
-            <input type="radio" class="btn-check" name="btnArea" id="btnAreaLegs" value="legs">
-            <label class="btn btn-outline-primary" for="btnAreaLegs">Legs</label>
-
-            <input type="radio" class="btn-check" name="btnArea" id="btnAreaCore" value="core">
-            <label class="btn btn-outline-primary" for="btnAreaCore">Core</label>
-        </div>
-
-        <h4>Difficulty</h4>
-        <div id="btnContainer3" class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="btnDiff" id="btnDiffBeg" value="beginner" checked>
-            <label class="btn btn-outline-primary" for="btnDiffBeg">Beginner</label>
-
-            <input type="radio" class="btn-check" name="btnDiff" id="btnDiffInter" value="intermediate">
-            <label class="btn btn-outline-primary" for="btnDiffInter">Intermediate</label>
-
-            <input type="radio" class="btn-check" name="btnDiff" id="btnDiffExpert" value="expert">
-            <label class="btn btn-outline-primary" for="btnDiffExpert">Expert</label>
-        </div>
-    </div>
-
-    <div id="btnContainerChoice" class="container">
-        <button type="button" class="btn m-2 btn-primary btn-lg d-inline" id="generateWorkout" onclick="generateShuffle()">Generate Shuffle</button>
-    </div>
+<div class="parallax-container">
+    <!--<div class="parallax"><img src="./images/pexels-ella-olsson-1640777.jpg" class="responsive-img"></div>-->
 </div>
+
+<div class="section white">
+    <div class="container">
+      <h2 class="header center">Ctrl Freaks Fitness</h2>
+      <p class="grey-text text-darken-3 lighten-3">We provide carefully selected categorized workouts for you. Remix the workouts until a desired shuffle is achieved and get to build the body of your dreams.</p>
+
+      <div class="container center">      
+          <a href="home.html" class="waves-effect waves-light btn-large">Begin</a>                  
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container" >
+    <!--<div class="parallax" ><img src="./images/pexels-karolina-grabowska-4498606.jpg" class="responsive-img"></div>-->
+  </div>
+
 {% endblock %}

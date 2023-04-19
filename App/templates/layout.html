@@ -17,15 +17,6 @@
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
         {% block link %}{% endblock %}
-        <!--<div class="nav-wrapper">
-            <ul id="nav-mobile" class="right">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users Jinja</a></li>
-                <li><a href="/static/users">Users JS</a></li>
-                <li><a href="/logout">New Shuffle</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </div>-->
       </div>
     </nav>
     
@@ -41,7 +32,6 @@
     {% endwith %}
 
     <div class="container" id="content">{% block content %}{% endblock %}</div>
-
 
     <footer>
       <div class="">
