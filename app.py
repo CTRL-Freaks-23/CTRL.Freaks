@@ -24,7 +24,7 @@ def create_app():
 app = create_app()
 jwt = JWTManager(app)  #setup flask jwt-e to work with app
 
-
+#Page Routes!
 @app.route("/", methods =['GET'])
 def login_page():
     return render_template("login.html")
