@@ -1,4 +1,41 @@
-.parallax-container{
-      height:320px;
+*{
+      margin:0;
+      padding:0;
 }
+
+html {
+      height: 100%;
+      width: 100%;
+}
+
+h1{
+      color: rgba(255, 255, 255, .4);
+      font-size: 105px;
+      text-align: center;
+}
+
+h2{
+      font-size: 32px;
+      text-align: center;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin: 20px 0 10px;
+}
+
+.parallax-container1{
+      background-image: url(/App/static/img/mainPic1.png);
+      background-attachment: fixed;
+      height: 75%;
+}
+
+.parallax-container1{
+      background-image: url(/App/static/img/mainPic2.png);
+      background-attachment: fixed;
+      height: 75%;
+}
+
+.parallax{
+      padding: 10% 0;
+}
+
 
