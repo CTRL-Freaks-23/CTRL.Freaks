@@ -31,11 +31,11 @@ def login_page():
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    name = request.form["name"]
+    name = request.form["username"]
     email = request.form["email"]
     password = request.form["password"]
     # save name and email to database
-    return render_template("signup.html", name=name, email=email, password=password)
+    return render_template("signup.html", username=name, email=email, password=password)
 
 
 @app.route('/login', methods=['POST'])
@@ -49,6 +49,42 @@ def login_user_view():
     return jsonify(access_token= create_access_token(identity=data['username']))
 
 
+#Display default workouts for each category
+@app.route("/begin", methods =['GET'])
+#@login_required
+def home_page():
+    url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises"
+    headers = {
+        "X-RapidAPI-Key": "51b70631c8msh71a2d7138dda15cp145714jsn930bb5c2d737",
+        "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com"
+    }
+
+    uBdata = []
+    lBdata = []
+    coreData = []
+
+    uB = ['chest', 'biceps', 'triceps']
+    lB = ['glutes', 'hamstrings', 'calves']
+    core = ['abdominals', 'lower_back', 'middle_back']
+    
+    for index in uB:
+        querystring = {"muscle":"uB[index]"}
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        uBdata.appends[response]
+
+    for index in lB:
+        querystring = {"muscle":"lB[index]"}
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        lBdata.appends[response]
+
+    for index in core:
+        querystring = {"muscle":"core[index]"}
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        coredata.appends[response]    
+
+    return render_template('home.html', upperBody=uBdata.slice(0,3), lowerBody=lBdata.slice(0,3), core=coreData.slice(0,3))
+
+
 @app.route("/workout")
 def workout():
     return render_template("workout.html")
@@ -59,10 +95,25 @@ def profile():
     return render_template("profile.html")
 
 
+#Remix Upper Body workouts
+@app.route("/remix1")
+#@login_required
+def remixUB():
+    return render_template("home.html", upperBody=result)
 
-@app.route("/remix")
-def remix():
-    return render_template("remix.html")
+
+#Remix Lower Body workouts
+@app.route("/remix2")
+#@login_required
+def remixLB():
+    return render_template("home.html", lowerBody=result)  
+
+
+#Remix Core workouts
+@app.route("/remix3")
+#@login_required
+def remixCORE():
+    return render_template("home.html", core=result)      
 
 
 @app.route("/exercise/<int:exercise_id>/delete", methods=["DELETE"])
