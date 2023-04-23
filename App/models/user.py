@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
         return{
             'id': self.id,
             'username': self.username
-            'email':self.email
+            'email': self.email
         }
 
     #hashes the password parameter and stores it in the object
