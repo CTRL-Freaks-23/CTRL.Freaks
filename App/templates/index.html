@@ -10,23 +10,23 @@
 {% endblock %}
 
 {% block content %}
-<section>
-  <div class="parallax-container1">
-    <div class="parallax">
-      <h1>Your Fitness Journey Begins Now</h1>
-    </div>
+<div class="parallax-container1">
+  <div class="parallax">
+    <div class="text"style="color: grey">Your Fitness Journey Begins Now</div>
+    <img src="{{url_for('static', filename='image/mainPic1.png')}}" class="responsive-img" alt='image 1'>
   </div>
+</div>
 
+<div class="section white center" style="padding-top:0">
   <h2>CTRL Freaks Fitness</h2>
-  <p class="grey-text text-darken-3 lighten-3">We provide carefully selected categorized workouts for you. Remix the
-    workouts until a desired shuffle is achieved and build the body of your dreams.</p>
+  <p class="grey-text text-darken-3 lighten-3">We provide carefully selected categorized workouts for you. Workouts of varying intensities,
+    target areas and equipment are availabe. Just remix the workouts until a desired shuffle is achieved and get to building the body of your dreams.</p>
     <a href="/begin" class="waves-effect waves-light btn-large">Begin</a> 
+</div>
 
-  <div class="parallax-container2">
-    <div class="parallax">
-      <h1></h1>
-    </div>
+<div class="parallax-container2">
+  <div class="parallax">
+    <img src="{{url_for('static', filename='image/mainPic2.png')}}" class="responsive-img" alt='image 2'>
   </div>
-</section>
-
+</div>
 {% endblock %}

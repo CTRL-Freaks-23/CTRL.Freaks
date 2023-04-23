@@ -3,9 +3,16 @@
       padding:0;
 }
 
+body{
+      background-color:white;
+      margin:0%;
+      padding: 0%;
+}
+
 #logo {
       width: 100px;
-      height: 80px;
+      height: 63px;
+      margin-left: 10px;
 }
 
 html {
@@ -13,11 +20,6 @@ html {
       width: 100%;
 }
 
-h1{
-      color: rgba(255, 255, 255, .4);
-      font-size: 105px;
-      text-align: center;
-}
 
 h2{
       font-size: 32px;
@@ -27,20 +29,27 @@ h2{
       margin: 20px 0 10px;
 }
 
-.parallax-container1{
-      background-image: url(/App/static/img/mainPic1.png);
-      background-attachment: fixed;
-      height: 75%;
-}
+.text{
+      font-size: 110px;
+      font-family:'Times New Roman', Times, serif;
+      font-weight: 800;
+      position: absolute;
+      top: 42%;
+      left: 0% ;
+      padding: 25px;
+      text-align: center;
+  }
+  
+  img{
+    max-width: 100%;
+    object-fit: contain;
+    
+  }
 
-.parallax-container1{
-      background-image: url(/App/static/img/mainPic2.png);
-      background-attachment: fixed;
-      height: 75%;
-}
 
-.parallax{
-      padding: 10% 0;
-}
+
+
+
+
 
 

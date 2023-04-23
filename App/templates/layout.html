@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar fixed">
       <div class="nav-wrapper red">
-        <a href="index.html" class="brand-logo left"><img id="logo" src="/images/logo.png"/></a>
+        <a href="/index" class="brand-logo left"><img id="logo" src="{{url_for('static', filename='image/logo.png')}}" alt='logo'/></a>
         <a href="#" class="brand-logo center">{% block page %}{% endblock %}</a>
         {% block link %}{% endblock %}
       </div>
@@ -32,10 +32,10 @@
       {% endif %}
     {% endwith %}
 
-    <div class="container" id="content">{% block content %}{% endblock %}</div>
+    {% block content %}{% endblock %}
 
     <footer>
-      <div class="">
+      <div class="red">
         <p class="brand-logo center">Copyright 2023. CTRL-Freaks </p>
       </div>
     </footer>

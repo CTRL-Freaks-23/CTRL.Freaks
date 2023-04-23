@@ -25,10 +25,17 @@ app = create_app()
 jwt = JWTManager(app)  #setup flask jwt-e to work with app
 
 #Page Routes!
+#Return to Login Page
 @app.route("/", methods =['GET'])
 def login_page():
     return render_template("login.html")
 
+#Return to Landing Page
+@app.route("/index", methods =['GET'])
+def login_page():
+    return render_template("index.html")    
+
+#Return to Sign up Page
 @app.route("/signup", methods=["POST"])
 def signup():
     name = request.form["username"]
@@ -37,7 +44,7 @@ def signup():
     # save name and email to database
     return render_template("signup.html", username=name, email=email, password=password)
 
-
+#Login User
 @app.route('/login', methods=['POST'])
 def login_user_view():
   data = request.json
@@ -49,7 +56,7 @@ def login_user_view():
     return jsonify(access_token= create_access_token(identity=data['username']))
 
 
-#Display default workouts for each category
+#Display default workouts for each category incomplete!
 @app.route("/begin", methods =['GET'])
 #@login_required
 def home_page():
