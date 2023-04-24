@@ -16,7 +16,7 @@ migrate = get_migrate(app)
 def initialize():
     db.drop_all()
     db.create_all()
-    create_user('bob', 'bob@mail.com', 'bobpass')
+    create_user('bob', 'bobpass')
     print('database intialized')
 
 '''
@@ -67,3 +67,25 @@ def user_tests_command(type):
     
 
 app.cli.add_command(test)
+
+
+#Upper body Commands
+# upperbody = AppGroup('upperbody', help='User upper body obj commands') 
+
+# @upperbody.command("create", help="Create upper body reps in the database")
+# @click.argument("title", default="pushups")
+# @click.argument("muscle_group", default="Chest")
+# @click.argument("reps", default="3")
+# def create_upper_command(title, muscle_group, reps=3):
+#     create_upper_command(title, muscle_group, reps)
+#     print (f'{title} created')
+
+
+# try:
+#         db.session.add(newuser)
+#         db.session.commit()
+#         return newuser
+#     except:
+#         return None
+
+# app.cli.add_command(upperbody) # add the group to the upperbody cli
