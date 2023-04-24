@@ -2,7 +2,7 @@ from App.models import User
 from App.database import db
 
 def create_user(username, password):
-    newuser = User(username=username, password=password, email=email)
+    newuser = User(username=username, password=password)
     db.session.add(newuser)
     db.session.commit()
     return newuser
@@ -30,4 +30,5 @@ def update_user(id, username):
         db.session.add(user)
         return db.session.commit()
     return None
+    
     
