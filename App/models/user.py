@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     username =  db.Column(db.String(255), nullable=False, unique=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
-    weight = db.Column(db.Float)
+    weight = db.Column(db.Float, nullable=True)
 
     #initiate user
     def __init__(self, username, email, password):
@@ -45,7 +45,7 @@ class UserProgress(db.Model):
     exercise_name = db.Column(db.String(255), db.ForeignKey('excercise.name'), nullable=False)
     progress_value = db.Column(db.Integer, default=0)
 
-    def __init__(self, user_id, progress_value=0):
+    def __init__(self, user_id, exercise_id,  exercise_name, progress_value=0):
         self.user_id = user_id
         self.progress_value = progress_value
 
@@ -63,15 +63,20 @@ class UserProgress(db.Model):
 
 #all Ecercises
 class Exercise(db.Model):  
+    __tablename__ = 'exercise'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=True)
+    category = db.Column(db.String(120), nullable=True)
+    duration = db.Column(db.Interger, nullable=(True))
 
     def get_json(self):
         return {
                 'exercise_id': self.id,
                 'name': self.name,
-                'description': self.description
+                'description': self.description,
+                'category': self.category,
+                'duration':self.duration
                }
     
     
