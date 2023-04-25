@@ -9,6 +9,10 @@ from App.controllers import (
     jwt_authenticate, 
     get_all_users,
     get_all_users_json,
+    create_exercise,
+    shuffle_exercise,
+    get_exercise,
+    get_all_exercise_json,
     jwt_required
 )
 
@@ -40,3 +44,28 @@ def create_user_action():
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
+
+
+@user_views.route('/templates/profile', methods=['GET'])
+def get_user_profile_page():
+    @login_required
+    user= User.query.filter_by(username=current_user.username).first()
+	return render_template('profile.html', username=user.username, email=user.email)
+
+
+@user_views.route('/workout', methods=['GET'])
+@user_views.route('/workout/<int:exercise_id>', methods=['GET'])
+@login_required
+def workout_page():
+  exercises = Exercise.query.all()
+  return render_template('workout.html', exercises=exercises)
+
+@user_views.route('/remix', methods=['GET'])
+@login_required
+def get_remix():
+    exercises= Exercise.query.all()
+    return render_template('remix.html', exercises=exercises)
+
+
+
+
